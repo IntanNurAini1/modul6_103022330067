@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace modul6_103022330067
 {
@@ -13,14 +14,36 @@ namespace modul6_103022330067
         private int playCount;
         public SayaTubeVideo(string title)
         {
-            Random random = new Random();
-            this.id = random.Next(10000, 99999);
-            this.title = title;
-            this.playCount = 0;
+            Debug.Assert(!string.IsNullOrEmpty(title) && title.Length <= 200, "Judul tidak boleh nul dan kurang dari 200 karakter");
+            try
+            {
+                checked
+                {
+                    Random random = new Random();
+                    this.id = random.Next(10000, 99999);
+                    this.title = title;
+                    this.playCount = 0;
+                }
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Play count melebihi batas maksimal");
+            }  
         }
         public void IncreasePlayCount(int a)
         {
-            this.playCount += a;
+            Debug.Assert(a > 0 && a <= 25000000, "Play count harus lebih dari 0 dan maks 25000000");
+            try
+            {
+                checked
+                {
+                    this.playCount += a;
+                }
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Play count melebihi batas maksimal");
+            }
         }
 
         public int GetPlayCount()

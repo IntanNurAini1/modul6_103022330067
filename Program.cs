@@ -17,7 +17,7 @@ class main
         SayaTubeVideo video9 = new SayaTubeVideo("Review Film Frozen oleh Intan Nur Aini");
         SayaTubeVideo video10 = new SayaTubeVideo("Review Film Frozen oleh Intan Nur Aini");
         SayaTubeVideo video11 = new SayaTubeVideo("Review Film Moana oleh Intan Nur Aini");
-        video1.IncreasePlayCount(3);
+        video1.IncreasePlayCount(26000000);
         video2.IncreasePlayCount(5);
         video3.IncreasePlayCount(2);
         video4.IncreasePlayCount(3);
